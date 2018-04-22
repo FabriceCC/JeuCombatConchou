@@ -7,3 +7,9 @@
 //
 
 import Foundation
+// description of team
+class Team {
+
+var name : String = ""
+let numberPersonnage = 3
+}

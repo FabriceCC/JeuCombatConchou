@@ -7,3 +7,11 @@
 //
 
 import Foundation
+
+
+// description of arms
+
+class Arms {
+var typeArme = ["Epée", "Hache"]
+
+}

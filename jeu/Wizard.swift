@@ -7,3 +7,10 @@
 //
 
 import Foundation
+// description of Wizard
+
+class Wizard : Characters {
+var typeWizard = TypeCharacters.mage
+    
+    
+}

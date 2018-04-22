@@ -10,5 +10,5 @@ import Foundation
 
 print("Hello, World!")
 
-// début programme
+//
 

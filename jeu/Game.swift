@@ -7,3 +7,10 @@
 //
 
 import Foundation
+
+// description of Game
+
+class Game {
+    
+    
+}

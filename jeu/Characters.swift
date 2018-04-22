@@ -7,3 +7,16 @@
 //
 
 import Foundation
+
+
+// description of characters
+class Characters {
+var Name : String = ""
+var type : TypeCharacters = .combattant
+var lifePersonnage = 100
+
+enum TypeCharacters
+{
+    case mage, combattant, nain, colosse
+}
+}
