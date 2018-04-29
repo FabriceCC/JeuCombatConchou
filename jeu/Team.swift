@@ -12,4 +12,10 @@ class Team {
 
 var name : String = ""
 let numberPersonnage = 3
+    var i = 0
+
+
+for i in 0...3 {
+    
+}
 }
