@@ -11,6 +11,15 @@ import Foundation
 // description of Game
 
 class Game {
-    
-    
+    var team1 : Team
+    var team2 : Team
+    init () {
+        team1 = Team ()
+        team2 = Team ()
+    }
+    func createGame () {
+        print ("Bienvenue, Vous allez maintenant créer vos équipes")
+        team1.createTeam ()
+        
+    }
 }
