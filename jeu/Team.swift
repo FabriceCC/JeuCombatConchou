@@ -12,6 +12,19 @@ class Team {
     var teamMembers = [Characters]()
     var name = [String] ()
     
+    func testName(testingName: String) -> Bool {
+        
+        for nameT in name {
+            
+            if nameT == testingName {
+                print ("Nom déjà saisi ")
+                return false
+            }
+           
+            }
+        return true
+            }
+    
     func createTeam() {
         print ("Veuillez choisir 3 personnages")
         // tant que tableau teammembers n'est pas plein de 3 personnage
@@ -23,17 +36,33 @@ class Team {
         print ("Choisissez le type de personnage : a - Un combattant, b - un mage, c - un nain, d - un colosse ")
         var entJouer : String?
         var nameT : String?
+        
         var entreeJoueur = readLine()
         // tester readline si a = combattant etc...
         entJouer = entreeJoueur
         if entJouer == "a" {
+            var uniqName : Bool = false
+            repeat {
                 print ("vous avez choisi un combattant, veuillez saisir son nom ")
                 var nameC = readLine()
-                nameT = nameC
-                print ("Vous avez choise \(nameT!) comme nom du combattant")
+                nameT = nameC!
+                
+                print ("Vous avez choise \(String(describing: nameT)) comme nom du combattant")
+                uniqName = testName (testingName:nameT!)
+                if uniqName {
                 name.append(nameT!)
+                 }
+                
+            } while !uniqName  // ! pour dire le contraire
+            
+            
+            
+            
+            
+            
             print ("\(name)")
-            } else if entJouer == "b" {
+            }
+            else if entJouer == "b" {
                 print ("vous avez choisi un mage, veuillez saisir un nom ")
                 var nameC = readLine()
                 nameT = nameC
