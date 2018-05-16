@@ -10,13 +10,13 @@ import Foundation
 // description of team
 class Team {
     var teamMembers = [Characters]()
-    var name = [String] ()
+    static var characterNames = [String] ()
     
-    func testName(testingName: String) -> Bool {
+    func testName(_ testingName: String) -> Bool {
         
-        for nameT in name {
+        for name in Team.characterNames {
             
-            if nameT == testingName {
+            if name.uppercased() == testingName.uppercased() {
                 print ("Nom déjà saisi ")
                 return false
             }
@@ -34,58 +34,28 @@ class Team {
     }
     func selectCharacter() {
         print ("Choisissez le type de personnage : a - Un combattant, b - un mage, c - un nain, d - un colosse ")
-        var entJouer : String?
-        var nameT : String?
-        
-        var entreeJoueur = readLine()
-        // tester readline si a = combattant etc...
-        entJouer = entreeJoueur
-        if entJouer == "a" {
-            var uniqName : Bool = false
-            repeat {
-                print ("vous avez choisi un combattant, veuillez saisir son nom ")
-                var nameC = readLine()
-                nameT = nameC!
-                
-                print ("Vous avez choise \(String(describing: nameT)) comme nom du combattant")
-                uniqName = testName (testingName:nameT!)
-                if uniqName {
-                name.append(nameT!)
-                 }
-                
-            } while !uniqName  // ! pour dire le contraire
+        var playerEntry : String?
+        var entryName : String?
+        var character : Characters
+        playerEntry = readLine()
+        if let entry = playerEntry {
+        if entry == "a" {
+            character = Characters()
+            chooseCharacterName()
             
-            
-            
-            
-            
-            
-            print ("\(name)")
             }
-            else if entJouer == "b" {
+            else if entry == "b" {
                 print ("vous avez choisi un mage, veuillez saisir un nom ")
-                var nameC = readLine()
-                nameT = nameC
-                print ("Vous avez choise \(nameT!) comme nom du mage")
-                name.append(nameT!)
-            print ("\(name)")
             
-        } else if entJouer == "c" {
+            
+        } else if entry == "c" {
                 print ("vous avez choisi un nain, veuillez saisir un nom ")
-                var nameC = readLine()
-                nameT = nameC
-                print ("Vous avez choise \(nameT!) comme nom du nain")
-                name.append(nameT!)
-            print ("\(name)")
+            
             
         }
-                else if entJouer == "d" {
+                else if entry == "d" {
                     print ("vous avez choisi un colosse")
-                var nameC = readLine()
-                nameT = nameC
-                print ("Vous avez choise \(nameT!) comme nom du colosse")
-                name.append(nameT!)
-            print ("\(name)")
+            
             
                 }
         
@@ -101,3 +71,32 @@ class Team {
     
 }
 
+    func chooseCharacterName() -> String{
+        var uniqueName : Bool = false
+        var entryName : String?
+        var finalName : String?
+        repeat {
+            print ("vous avez choisi un combattant, veuillez saisir son nom ")
+            entryName = readLine()
+            if let name = entryName {
+                print ("Vous avez choise \(name) comme nom du combattant")
+                uniqueName = testName (name)
+                if uniqueName {
+                    Team.characterNames.append(name)
+                    finalName = name
+                    
+                    
+                }
+            }
+            
+        } while !uniqueName  // ! pour dire le contraire
+        
+        
+        
+        
+        
+        
+        print ("\(Team.CharacterNames)")
+        return finalName!
+    }
+}
