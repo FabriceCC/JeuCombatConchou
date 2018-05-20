@@ -11,20 +11,15 @@ import Foundation
 class Team {
     var teamMembers = [Characters]()
     static var characterNames = [String] ()
-    
     func testName(_ testingName: String) -> Bool {
-        
         for name in Team.characterNames {
-            
             if name.uppercased() == testingName.uppercased() {
                 print ("Nom déjà saisi ")
                 return false
             }
-           
             }
         return true
             }
-    
     func createTeam() {
         print ("Veuillez choisir 3 personnages")
         // tant que tableau teammembers n'est pas plein de 3 personnage
@@ -39,37 +34,25 @@ class Team {
         var character : Characters
         playerEntry = readLine()
         if let entry = playerEntry {
-        if entry == "a" {
-            character = Characters()
-            chooseCharacterName()
-            
-            }
+            if entry == "a" {
+                character = Characters()
+                chooseCharacterName()
+                            }
             else if entry == "b" {
-                print ("vous avez choisi un mage, veuillez saisir un nom ")
             
+                                }
+            else if entry == "c" {
             
-        } else if entry == "c" {
-                print ("vous avez choisi un nain, veuillez saisir un nom ")
+                                }
+            else if entry == "d" {
             
-            
-        }
-                else if entry == "d" {
-                    print ("vous avez choisi un colosse")
-            
-            
+                                }
+            else {
+            print ("Entrer seulement a, b c ou d  !")
                 }
         
-        
-            
-         else {
-            print ("Entrer seulement a, b c ou d  !")
-}
-        // chercher propriété commune à tous les instances d'une classe
-        
-    }
-
-    
-}
+            }
+                        }
 
     func chooseCharacterName() -> String{
         var uniqueName : Bool = false
@@ -84,19 +67,10 @@ class Team {
                 if uniqueName {
                     Team.characterNames.append(name)
                     finalName = name
-                    
-                    
                 }
             }
-            
         } while !uniqueName  // ! pour dire le contraire
-        
-        
-        
-        
-        
-        
-        print ("\(Team.CharacterNames)")
+        print ("\(Team.characterNames)")
         return finalName!
     }
 }
