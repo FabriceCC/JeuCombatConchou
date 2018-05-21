@@ -22,23 +22,17 @@ class Team {
             }
         return true
             }
-    func createTeam1() {
+    func createTeam() {
         print ("Veuillez choisir 3 personnages")
+        var number = 1
         // tant que tableau teammembers n'est pas plein de 3 personnage
         repeat {
             selectCharacter()
-        } while Team.characterNames.count < 3
+            number += 1
+        } while number < 4
         
     }
     
-    func createTeam2() {
-        print ("Veuillez choisir 3 personnages")
-        // tant que tableau teammembers n'est pas plein de 3 personnage
-        repeat {
-            selectCharacter()
-        } while Team.characterNames.count < 6
-        
-    }
     
     
     
@@ -51,25 +45,43 @@ class Team {
         if let entry = playerEntry {
             if entry == "a" {
                 character = Characters()
-                chooseCharacterNamea()
-                            }
+                chooseCharacterName()
+                Team.typeCharacters.append("combattant")
+                Team.lifeCharacters.append(100)
+            
+                
+            }
             else if entry == "b" {
                 character = Characters()
-                chooseCharacterNameb()                                }
+                chooseCharacterName()
+                Team.typeCharacters.append("mage")
+                Team.lifeCharacters.append(200)
+            
+                
+            }
             else if entry == "c" {
                 character = Characters()
-                chooseCharacterNamec()                                   }
+                chooseCharacterName()
+                Team.typeCharacters.append("nain")
+                Team.lifeCharacters.append(50)
+                
+            }
             else if entry == "d" {
                 character = Characters()
-                chooseCharacterNamed()                                 }
+                chooseCharacterName()
+                Team.typeCharacters.append("colosse")
+                Team.lifeCharacters.append(150)
+                
+            }
             else {
             print ("Entrer seulement a, b c ou d  !")
                 }
         
             }
+        
                         }
 
-    func chooseCharacterNamea() -> String{
+    func chooseCharacterName() -> String{
         var uniqueName : Bool = false
         var entryName : String?
         var finalName : String?
@@ -81,8 +93,7 @@ class Team {
                 uniqueName = testName (name)
                 if uniqueName {
                     Team.characterNames.append(name)
-                    Team.typeCharacters.append("combattant")
-                    Team.lifeCharacters.append(100)
+                    
                     finalName = name
                 }
             }
@@ -91,75 +102,11 @@ class Team {
         return finalName!
     }
 
-    func chooseCharacterNameb() -> String{
-        var uniqueName : Bool = false
-        var entryName : String?
-        var finalName : String?
-       
-        repeat {
-            print ("vous avez choisi un mage, veuillez saisir son nom ")
-            entryName = readLine()
-            if let name = entryName {
-                print ("Vous avez choise \(name) comme nom du mage")
-                uniqueName = testName (name)
-                if uniqueName {
-                    Team.characterNames.append(name)
-                    Team.typeCharacters.append("mage")
-                    Team.lifeCharacters.append(200)
-                    finalName = name
-                
-                }
-            }
-        } while !uniqueName  // ! pour dire le contraire
-        print ("\(Team.characterNames)")
-        return finalName!
-    }
+   
 
-    func chooseCharacterNamec() -> String{
-        var uniqueName : Bool = false
-        var entryName : String?
-        var finalName : String?
-      
-        repeat {
-            print ("vous avez choisi un nain, veuillez saisir son nom ")
-            entryName = readLine()
-            if let name = entryName {
-                print ("Vous avez choise \(name) comme nom du nain")
-                uniqueName = testName (name)
-                if uniqueName {
-                    Team.characterNames.append(name)
-                    Team.typeCharacters.append("nain")
-                    Team.lifeCharacters.append(50)
-                    finalName = name
-                }
-            }
-        } while !uniqueName  // ! pour dire le contraire
-        print ("\(Team.characterNames)")
-        return finalName!
-    }
+   
 
-    func chooseCharacterNamed() -> String{
-        var uniqueName : Bool = false
-        var entryName : String?
-        var finalName : String?
-     
-        repeat {
-            print ("vous avez choisi un colosse, veuillez saisir son nom ")
-            entryName = readLine()
-            if let name = entryName {
-                print ("Vous avez choise \(name) comme nom du colosse")
-                uniqueName = testName (name)
-                if uniqueName {
-                    Team.characterNames.append(name)
-                    Team.typeCharacters.append("colosse")
-                    Team.lifeCharacters.append(150)
-                    finalName = name
-                }
-            }
-        } while !uniqueName  // ! pour dire le contraire
-        print ("\(Team.characterNames)")
-        return finalName!
-    }
+    
 
 
 
