@@ -19,7 +19,7 @@ class Game {
     }
     func createGame () {
         print ("Bienvenue, Vous allez maintenant créer vos équipes")
-        team1.createTeam ()
+        team1.createTeam1 ()
         
     }
 }
