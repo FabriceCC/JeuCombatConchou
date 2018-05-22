@@ -40,6 +40,7 @@ class Team {
         print ("Choisissez le type de personnage : a - Un combattant, b - un mage, c - un nain, d - un colosse ")
         var playerEntry : String?
         var entryName : String?
+        var returnName : String?
         var character : Characters
         playerEntry = readLine()
         if let entry = playerEntry {
@@ -48,7 +49,7 @@ class Team {
                 chooseCharacterName()
                 Team.typeCharacters.append("combattant")
                 Team.lifeCharacters.append(100)
-            
+                returnName = chooseCharacterName()
                 
             }
             else if entry == "b" {
@@ -56,30 +57,29 @@ class Team {
                 chooseCharacterName()
                 Team.typeCharacters.append("mage")
                 Team.lifeCharacters.append(200)
-            
-                
+                returnName = chooseCharacterName()
             }
             else if entry == "c" {
                 character = Characters()
                 chooseCharacterName()
                 Team.typeCharacters.append("nain")
                 Team.lifeCharacters.append(50)
-                
-            }
+                returnName = chooseCharacterName()            }
             else if entry == "d" {
                 character = Characters()
                 chooseCharacterName()
                 Team.typeCharacters.append("colosse")
                 Team.lifeCharacters.append(150)
-                
-            }
+                returnName = chooseCharacterName()            }
             else {
             print ("Entrer seulement a, b c ou d  !")
                 }
+       
+            
+        }
+            return returnName!
         
-            }
-        
-                        }
+    }
 
     func chooseCharacterName() -> String{
         var uniqueName : Bool = false

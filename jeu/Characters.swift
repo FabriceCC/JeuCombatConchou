@@ -14,6 +14,7 @@ class Characters {
 var Name : String = ""
 var typeCharac : String = "combattant"
 var lifePersonnage = 100
-
-
+    var nameCharacters = [String] ()
+    var typeCharacters = [String] ()
+    var lifeCharacters = [Int] ()
 }

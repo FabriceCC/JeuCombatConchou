@@ -16,6 +16,7 @@ print("Hello, World!")
 var team1 = Team()
 team1.createTeam()
 print ("L'équipe 1 est composée de \(Team.characterNames) \(Team.typeCharacters) \(Team.lifeCharacters) ")
+team1.nameCharacters == Team.characterNames
 
 var team2 = Team()
 team2.createTeam()
