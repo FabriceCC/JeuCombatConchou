@@ -11,19 +11,26 @@ import Foundation
 class Team {
     var teamMembers = [Characters]()
     static var characterNames = [String] ()
+    /**
+     * Commentaire MENTOR :
+     * A quoi te servent les tableaux typeCharacters et lifeCharacters ?
+     */
     static var typeCharacters = [String] ()
     static var lifeCharacters = [Int] ()
+    
     func testName(_ testingName: String) -> Bool {
         for name in Team.characterNames {
             if name.uppercased() == testingName.uppercased() {
                 print ("Nom déjà saisi ")
                 return false
             }
-            }
+        }
         return true
-            }
+    }
     func createTeam() {
         print ("Veuillez choisir 3 personnages")
+        
+        //Commentaire MENTOR : Il y a un autre moyen plus sur pour vérifier le nombre de personnages plutôt que de faire une variable number
         var number = 1
         // tant que tableau teammembers n'est pas plein de 3 personnage
         repeat {
@@ -39,14 +46,19 @@ class Team {
     func selectCharacter() {
         print ("Choisissez le type de personnage : a - Un combattant, b - un mage, c - un nain, d - un colosse ")
         var playerEntry : String?
+        // Commentaire MENTOR : A quoi correspond entryName ?
         var entryName : String?
         var returnName : String?
+        // Commentaire MENTOR : Si tu déclare character ici, ça ne sert à rien que tu le redéclare dans chaque entry
         var character : Characters
         playerEntry = readLine()
         if let entry = playerEntry {
             if entry == "a" {
                 character = Characters()
+                // Commentaire MENTOR : ici il faut forcemment que tu utilise la variable que renvoie chooseCharacterName
+                // Commentaire MENTOR : Par exemple : var name = chooseCharacterName()
                 chooseCharacterName()
+                //Commentaire MENTOR : quel est l'intérêt des 3 lignes suivantes ???
                 Team.typeCharacters.append("combattant")
                 Team.lifeCharacters.append(100)
                 returnName = chooseCharacterName()
@@ -77,7 +89,8 @@ class Team {
        
             
         }
-            return returnName!
+            //Commentaire MENTOR : ta fonction dans sa déclaration n'est pas sensée renvoyer quoi que ce soit. Je commente le return
+            //return returnName!
         
     }
 
