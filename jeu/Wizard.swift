@@ -9,7 +9,7 @@
 import Foundation
 // description of Wizard
 
-class Wizard : Characters {
+class Wizard : Character {
 
     
     

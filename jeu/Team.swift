@@ -9,7 +9,7 @@
 import Foundation
 // description of team
 class Team {
-    var teamMembers = [Characters]()
+    var teamMembers = [Character]()
     static var characterNames = [String] ()
     /**
      * Commentaire MENTOR :
@@ -31,58 +31,63 @@ class Team {
         print ("Veuillez choisir 3 personnages")
         
         //Commentaire MENTOR : Il y a un autre moyen plus sur pour vérifier le nombre de personnages plutôt que de faire une variable number
-        var number = 1
-        // tant que tableau teammembers n'est pas plein de 3 personnage
+                // tant que tableau teammembers n'est pas plein de 3 personnage
         repeat {
-            selectCharacter()
-            number += 1
-        } while number < 4
+            let entry = selectCharacter()
+            if let character = entry {
+                teamMembers.append (character)
+                
+            }
+            
+        } while teamMembers.count < 3
         
     }
     
     
     
     
-    func selectCharacter() {
+    func selectCharacter() -> Character? {
         print ("Choisissez le type de personnage : a - Un combattant, b - un mage, c - un nain, d - un colosse ")
         var playerEntry : String?
         // Commentaire MENTOR : A quoi correspond entryName ?
-        var entryName : String?
-        var returnName : String?
+       
         // Commentaire MENTOR : Si tu déclare character ici, ça ne sert à rien que tu le redéclare dans chaque entry
-        var character : Characters
+       
         playerEntry = readLine()
         if let entry = playerEntry {
-            if entry == "a" {
-                character = Characters()
-                // Commentaire MENTOR : ici il faut forcemment que tu utilise la variable que renvoie chooseCharacterName
-                // Commentaire MENTOR : Par exemple : var name = chooseCharacterName()
-                chooseCharacterName()
-                //Commentaire MENTOR : quel est l'intérêt des 3 lignes suivantes ???
-                Team.typeCharacters.append("combattant")
-                Team.lifeCharacters.append(100)
-                returnName = chooseCharacterName()
+            if entry=="a" || entry=="b" || entry=="c" || entry=="d" {
+                if entry == "a" {
+                    let character = Character (type: "combattant")
+                    let name = chooseCharacterName()
+                    character.name = name
+                    return character
+                    
+                    
+                }
+                else if entry == "b" {
+                    let character = Wizard (type: "wizard")
+                    let name = chooseCharacterName()
+                    character.name = name
+                    return character
+                    
+                }
+                else if entry == "c" {
+                    let character = Character (type: "dwarf")
+                    let name = chooseCharacterName()
+                    character.name = name
+                    return character
+                    
+                }
+                else if entry == "d" {
+                    let character = Character (type: "giant")
+                    let name = chooseCharacterName()
+                    character.name = name
+                    return character
+                    
+                }
                 
             }
-            else if entry == "b" {
-                character = Characters()
-                chooseCharacterName()
-                Team.typeCharacters.append("mage")
-                Team.lifeCharacters.append(200)
-                returnName = chooseCharacterName()
-            }
-            else if entry == "c" {
-                character = Characters()
-                chooseCharacterName()
-                Team.typeCharacters.append("nain")
-                Team.lifeCharacters.append(50)
-                returnName = chooseCharacterName()            }
-            else if entry == "d" {
-                character = Characters()
-                chooseCharacterName()
-                Team.typeCharacters.append("colosse")
-                Team.lifeCharacters.append(150)
-                returnName = chooseCharacterName()            }
+           
             else {
             print ("Entrer seulement a, b c ou d  !")
                 }
@@ -92,6 +97,7 @@ class Team {
             //Commentaire MENTOR : ta fonction dans sa déclaration n'est pas sensée renvoyer quoi que ce soit. Je commente le return
             //return returnName!
         
+        return nil
     }
 
     func chooseCharacterName() -> String{

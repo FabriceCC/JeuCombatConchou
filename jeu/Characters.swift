@@ -10,11 +10,32 @@ import Foundation
 
 
 // description of characters
-class Characters {
-var Name : String = ""
+class Character {
+var name : String = ""
 var typeCharac : String = "combattant"
 var lifePersonnage = 100
-    var nameCharacters = [String] ()
-    var typeCharacters = [String] ()
-    var lifeCharacters = [Int] ()
+ 
+    init (type : String) {
+        typeCharac = type
+        initializeCharacter ()
+            
+    
+    }
+    convenience init () {
+        self.init(type: "combattant")
+        
+    }
+    func initializeCharacter () {
+        switch typeCharac {
+        case "dwarf" :
+            lifePersonnage = 90
+        case "wizard" :
+            lifePersonnage = 150
+        case "giant" :
+            lifePersonnage = 120
+        default :
+            lifePersonnage = 100
+        }
+    }
+
 }
