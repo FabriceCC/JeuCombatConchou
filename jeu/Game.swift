@@ -17,9 +17,11 @@ class Game {
         team1 = Team ()
         team2 = Team ()
         createGame()
-        presenteTeam()
+        introdiuceTeam()
         
     }
+    
+    // create of game
     func createGame () {
         print ("Création de l'équipe 1 ...")
         team1.createTeam ()
@@ -27,8 +29,8 @@ class Game {
         team2.createTeam()
         
     }
-    
-    func presenteTeam () {
+    // Introdiucing Team
+    func introdiuceTeam () {
         print ("Les équipes sont créées le jeu va pouvoir commencer...")
         print ("L'équipe 1 est composée ainsi : ")
         for character in team1.teamMembers {
