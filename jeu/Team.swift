@@ -41,13 +41,13 @@ class Team {
     
     
     func selectCharacter() -> Character? {
-        print ("Choisissez le type de personnage : a - Un combattant, b - un mage, c - un nain, d - un colosse ")
+        print ("Choisissez le type de personnage : a - Fighter, b - Wizard, c - Dwarf, d - Giant ")
         var playerEntry : String?
         playerEntry = readLine()
         if let entry = playerEntry {
             if entry=="a" || entry=="b" || entry=="c" || entry=="d" {
                 if entry == "a" {
-                    let character = Character (type: "combattant")
+                    let character = Character (type: "Fighter")
                     let name = chooseCharacterName()
                     character.name = name
                     return character
@@ -55,21 +55,21 @@ class Team {
                     
                 }
                 else if entry == "b" {
-                    let character = Wizard (type: "wizard")
+                    let character = Wizard (type: "Wizard")
                     let name = chooseCharacterName()
                     character.name = name
                     return character
                     
                 }
                 else if entry == "c" {
-                    let character = Character (type: "dwarf")
+                    let character = Character (type: "Dwarf")
                     let name = chooseCharacterName()
                     character.name = name
                     return character
                     
                 }
                 else if entry == "d" {
-                    let character = Character (type: "giant")
+                    let character = Character (type: "Giant")
                     let name = chooseCharacterName()
                     character.name = name
                     return character
@@ -105,7 +105,6 @@ class Team {
                 }
             }
         } while !uniqueName  // ! pour dire le contraire
-        print ("\(Team.characterNames)")
         return finalName!
     }
     
