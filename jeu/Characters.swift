@@ -26,6 +26,7 @@ class Character {
         self.init(type: "Fighter")
         
     }
+    // Initialize character 
     func initializeCharacter () {
         switch typeCharac {
         case "Dwarf" :
