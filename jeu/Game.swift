@@ -18,6 +18,7 @@ class Game {
         team2 = Team ()
         createGame()
         introdiuceTeam()
+        roundGame()
         
     }
     
@@ -46,5 +47,20 @@ class Game {
             print ("Votre personnage \(num) s'appelle \(character.name) qui est un \(character.typeCharac) avec \(character.lifePersonnage) de points de vie. Il a \(character.arm) comme arme et son arme inflige \(character.armPower) de points de vie")
             num = num + 1        }
     }
+    
+    func roundGame () {
+        
+        var sumLifes = 1
+        repeat {
+        var sumLife = 0
+        for character in team1.teamMembers {
+            sumLife = sumLife + character.lifePersonnage
+            
+        }
+            print ("Total points vie équipe 1 : \(sumLife)")
+            sumLifes = sumLife
+            break
+        } while sumLifes != 0
 }
 
+}
