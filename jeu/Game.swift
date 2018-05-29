@@ -18,6 +18,7 @@ class Game {
         team2 = Team ()
         createGame()
         introdiuceTeam()
+        testLife ()
         roundGame()
         
     }
@@ -50,17 +51,27 @@ class Game {
     
     func roundGame () {
         
-        var sumLifes = 1
-        repeat {
+        
+}
+
+    func testLife() {
         var sumLife = 0
         for character in team1.teamMembers {
             sumLife = sumLife + character.lifePersonnage
             
         }
-            print ("Total points vie équipe 1 : \(sumLife)")
-            sumLifes = sumLife
-            break
-        } while sumLifes != 0
-}
-
+        print ("Total points vie équipe 1 : \(sumLife)")
+        if sumLife == 0 {
+            print ("L'équipe 1 a perdu la partie, tous les personnages sont morts")
+            }
+        sumLife = 0
+        for character in team2.teamMembers {
+            sumLife = sumLife + character.lifePersonnage
+            
+        }
+        print ("Total points vie équipe 2 : \(sumLife)")
+        if sumLife == 0 {
+            print ("L'équipe 2 a perdu la partie, tous les personnages sont morts")
+        }        }
+    
 }
