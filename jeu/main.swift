@@ -7,6 +7,6 @@
 //
 
 import Foundation
-Game()
+var game = Game()
 
 

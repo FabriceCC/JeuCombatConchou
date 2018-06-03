@@ -9,7 +9,7 @@
 import Foundation
 // description of team
 class Team {
-    var teamMembers = [Character]()
+    var members = [Character]()
     static var characterNames = [String] ()
     
     
@@ -22,67 +22,57 @@ class Team {
         }
         return true
     }
+    
     func createTeam() {
         print ("Veuillez choisir 3 personnages")
-        
-        
         repeat {
             let entry = selectCharacter()
             if let character = entry {
-                teamMembers.append (character)
-                
+                members.append (character)
             }
             
-        } while teamMembers.count < 3
+        } while members.count < 3
         
     }
-    
-    
-    
     
     func selectCharacter() -> Character? {
         print ("Choisissez le type de personnage : a - Fighter, b - Wizard, c - Dwarf, d - Giant ")
         var playerEntry : String?
         playerEntry = readLine()
         if let entry = playerEntry {
-            if entry=="a" || entry=="b" || entry=="c" || entry=="d" {
-                if entry == "a" {
+            
+            // changer par un switch et case
+            
+            switch entry {
+            case "a" :
                     let character = Character (type: "Fighter")
                     let name = chooseCharacterName()
                     character.name = name
                     return character
                     
                     
-                }
-                else if entry == "b" {
+            case "b" :
                     let character = Wizard (type: "Wizard")
                     let name = chooseCharacterName()
                     character.name = name
                     return character
                     
-                }
-                else if entry == "c" {
+            case "c" :
                     let character = Character (type: "Dwarf")
                     let name = chooseCharacterName()
                     character.name = name
                     return character
                     
-                }
-                else if entry == "d" {
+            case "d" :
                     let character = Character (type: "Giant")
                     let name = chooseCharacterName()
                     character.name = name
                     return character
-                    
-                }
+           
                 
-            }
-                
-            else {
+            default :
                 print ("Entrer seulement a, b c ou d  !")
-            }
-            
-            
+        
         }
         
         
@@ -108,10 +98,17 @@ class Team {
         return finalName!
     }
     
-    
-    
-    
-    
+    func introdiuce () {
+        print ("Les équipes sont créées le jeu va pouvoir commencer...")
+        print ("L'équipe 1 est composée ainsi : ")
+        var num : Int = 1
+        
+        
+        for character in members {
+            print ("Votre personnage \(num) s'appelle \(character.name) qui est un \(character.typeCharac) avec \(character.lifePersonnage) de points de vie. Il a \(character.weapon) comme arme et son arme inflige \(character.armPower) de points de vie")
+            num = num + 1
+            
+        }
     
     
     
