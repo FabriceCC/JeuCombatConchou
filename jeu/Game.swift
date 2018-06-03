@@ -42,6 +42,9 @@ class Game {
      // demander équipe 1 de choisir personnage
         print ("Choisissez le personnage de votre équipe 1 : 1 , 2 ou 3 ")
         team1.selectPlayer()
+        if  typeTest == "Wizard" {
+            
+        }
         print ("Choisissez le personnage de votre équipe 2 : 1 , 2 ou 3 ")
         team2.selectPlayer()
         

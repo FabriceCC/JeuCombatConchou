@@ -124,7 +124,7 @@ class Team {
 }
     
     func selectPlayer() {
-        
+        var typeTest : String?
         var playerEntry : String?
         playerEntry = readLine()
         if let entry = playerEntry {
@@ -133,18 +133,29 @@ class Team {
             case "1" :
                 let personnage = members [0]
                 print (" le personnage selectionné s'appelle \(personnage.name) \(members[0].name) ")
+                typeTest = personnage.typeCharac
+                
             case "2" :
                 let personnage = members [1]
                 print (" le personnage selectionné s'appelle \(personnage.name) \(members[1].name) ")
+                typeTest = personnage.typeCharac
+              
             case "3" :
                 let personnage = members [2]
                 print (" le personnage selectionné s'appelle \(personnage.name) \(members[2].name) ")
+                typeTest = personnage.typeCharac
+                
             default :
                 print ("Choisissez seulement 1, 2 ou ")
             }
             
-            
+         
         }
+        
+        return typeTest!
+        
+    }
+        
     }
     
-}
+
