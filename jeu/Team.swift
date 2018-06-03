@@ -43,36 +43,44 @@ class Team {
             
             // changer par un switch et case
             
-            switch entry {
-            case "a" :
+            if entry=="a" || entry=="b" || entry=="c" || entry=="d" {
+                if entry == "a" {
                     let character = Character (type: "Fighter")
                     let name = chooseCharacterName()
                     character.name = name
                     return character
                     
                     
-            case "b" :
+                }
+                else if entry == "b" {
                     let character = Wizard (type: "Wizard")
                     let name = chooseCharacterName()
                     character.name = name
                     return character
                     
-            case "c" :
+                }
+                else if entry == "c" {
                     let character = Character (type: "Dwarf")
                     let name = chooseCharacterName()
                     character.name = name
                     return character
                     
-            case "d" :
+                }
+                else if entry == "d" {
                     let character = Character (type: "Giant")
                     let name = chooseCharacterName()
                     character.name = name
                     return character
-           
+                    
+                }
                 
-            default :
+            }
+                
+            else {
                 print ("Entrer seulement a, b c ou d  !")
-        
+            }
+            
+            
         }
         
         
@@ -112,5 +120,31 @@ class Team {
     
     
     
+    
+}
+    
+    func selectPlayer() {
+        
+        var playerEntry : String?
+        playerEntry = readLine()
+        if let entry = playerEntry {
+            
+            switch entry {
+            case "1" :
+                let personnage = members [0]
+                print (" le personnage selectionné s'appelle \(personnage.name) \(members[0].name) ")
+            case "2" :
+                let personnage = members [1]
+                print (" le personnage selectionné s'appelle \(personnage.name) \(members[1].name) ")
+            case "3" :
+                let personnage = members [2]
+                print (" le personnage selectionné s'appelle \(personnage.name) \(members[2].name) ")
+            default :
+                print ("Choisissez seulement 1, 2 ou ")
+            }
+            
+            
+        }
+    }
     
 }
