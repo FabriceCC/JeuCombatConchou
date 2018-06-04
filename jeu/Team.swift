@@ -123,7 +123,7 @@ class Team {
     
 }
     
-    func selectPlayer() {
+    func selectPlayer() -> String{
         var typeTest : String?
         var playerEntry : String?
         playerEntry = readLine()

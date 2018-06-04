@@ -41,9 +41,12 @@ class Game {
     func roundGame () {
      // demander équipe 1 de choisir personnage
         print ("Choisissez le personnage de votre équipe 1 : 1 , 2 ou 3 ")
-        team1.selectPlayer()
-        if  typeTest == "Wizard" {
-            
+        let charac1 = team1.selectPlayer()
+        var typeChar : String
+        typeChar = charac1
+        if  typeChar == "Wizard" {
+            print ("Choisissez le personnage de votre équipe à soigner : 1 , 2 ou 3 ")
+            team1.selectPlayer()
         }
         print ("Choisissez le personnage de votre équipe 2 : 1 , 2 ou 3 ")
         team2.selectPlayer()
