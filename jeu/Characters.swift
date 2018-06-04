@@ -15,7 +15,7 @@ class Character {
     var typeCharac : String = "Fighter"
     var lifePersonnage = 100
     var weapon : String = "Sword"
-    var armPower : Int = -10
+    var power : Int = -10
     init (type : String) {
         typeCharac = type
         initializeCharacter ()
@@ -32,18 +32,18 @@ class Character {
         case "Dwarf" :
             lifePersonnage = 50
             weapon = "Axe"
-            armPower = -20
+            power = 20
         case "Wizard" :
             lifePersonnage = 80
             weapon = "Care"
-            armPower = 20
+            power = 20
         case "Giant" :
             lifePersonnage = 150
             weapon = "Stick"
-            armPower = -2
+            power = 2
         default :
             lifePersonnage = 100
-            armPower = -10
+            power = 10
         }
     }
     

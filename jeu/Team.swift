@@ -113,7 +113,7 @@ class Team {
         
         
         for character in members {
-            print ("Votre personnage \(num) s'appelle \(character.name) qui est un \(character.typeCharac) avec \(character.lifePersonnage) de points de vie. Il a \(character.weapon) comme arme et son arme inflige \(character.armPower) de points de vie")
+            print ("Votre personnage \(num) s'appelle \(character.name) qui est un \(character.typeCharac) avec \(character.lifePersonnage) de points de vie. Il a \(character.weapon) comme arme et son arme inflige \(character.power) de points de vie")
             num = num + 1
             
         }
@@ -155,7 +155,71 @@ class Team {
         return typeTest!
         
     }
+    
+    func selectSoins() {
+        var playerEntry : String?
+        playerEntry = readLine()
+        if let entry = playerEntry {
+            
+            switch entry {
+            case "1" :
+                let personnage = members [0]
+                print (" le personnage à soigner s'appelle \(personnage.name) \(members[0].name) ")
+                members[0].lifePersonnage = members[0].lifePersonnage + 20
+                
+                
+            case "2" :
+                let personnage = members [1]
+                print (" le personnage selectionné s'appelle \(personnage.name) \(members[1].name) ")
+                members[1].lifePersonnage = members[1].lifePersonnage + 20
+                
+            case "3" :
+                let personnage = members [2]
+                print (" le personnage selectionné s'appelle \(personnage.name) \(members[2].name) ")
+                members[2].lifePersonnage = members[2].lifePersonnage + 20
+                
+            default :
+                print ("Choisissez seulement 1, 2 ou ")
+            }
+            
+            
+        }
         
+        
+        
+    }
+    func selectWar() {
+       
+        var playerEntry : String?
+        playerEntry = readLine()
+        if let entry = playerEntry {
+            
+            switch entry {
+            case "1" :
+                let personnage = members [0]
+                print (" le personnage selectionné s'appelle \(personnage.name) \(members[0].name) ")
+                members[0].lifePersonnage = members[0].lifePersonnage - 20
+                
+            case "2" :
+                let personnage = members [1]
+                print (" le personnage selectionné s'appelle \(personnage.name) \(members[1].name) ")
+                members[0].lifePersonnage = members[0].lifePersonnage - 20
+                
+            case "3" :
+                let personnage = members [2]
+                print (" le personnage selectionné s'appelle \(personnage.name) \(members[2].name) ")
+                members[0].lifePersonnage = members[0].lifePersonnage - 20
+                
+            default :
+                print ("Choisissez seulement 1, 2 ou ")
+            }
+            
+            
+        }
+        
+       
+        
+    }
     }
     
 

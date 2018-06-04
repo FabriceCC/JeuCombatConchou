@@ -21,10 +21,7 @@ class Game {
         team2.introdiuce()
         
         
-        // à mettre dans le main
         
-        testLife ()
-        roundGame()
         
     }
     
@@ -46,11 +43,13 @@ class Game {
         typeChar = charac1
         if  typeChar == "Wizard" {
             print ("Choisissez le personnage de votre équipe à soigner : 1 , 2 ou 3 ")
-            team1.selectPlayer()
+            let charac1bis = team1.selectSoins()
         }
-        print ("Choisissez le personnage de votre équipe 2 : 1 , 2 ou 3 ")
-        team2.selectPlayer()
+        else {
+            print ("Choisissez le personnage de votre équipe 2 : 1 , 2 ou 3 ")
+        let charac2 = team2.selectWar()
         
+        }
     }
 
     func testLife() {

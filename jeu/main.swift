@@ -8,5 +8,7 @@
 
 import Foundation
 var game = Game()
-
-
+game.testLife()
+game.roundGame()
+print ("Fin du round 1 ...")
+game.testLife()
