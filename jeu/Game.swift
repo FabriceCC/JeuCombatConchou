@@ -34,13 +34,16 @@ class Game {
         let charac1 = team1.selectPlayer()
         var typeChar : String
         typeChar = charac1
+        var powe : Int = 0
+        powe = team1.members[0].power
+        print ("power : \(powe)")
         if  typeChar == "Wizard" {
             print ("Choisissez le personnage de votre équipe 1 à soigner : 1 , 2 ou 3 ")
-            _ = team1.selectSoins()
+            _ = team1.selectSoins(powe)
         }
         else {
             print ("Choisissez le personnage de l'équipe 2 à attaquer : 1 , 2 ou 3 ")
-            _ = team2.selectWar()
+            _ = team2.selectWar(powe)
         }
     }
     
@@ -51,13 +54,16 @@ class Game {
         let charac1 = team2.selectPlayer()
         var typeChar : String
         typeChar = charac1
+        var powe : Int = 0
+        powe = team2.members[0].power
+        print ("power : \(powe)")
         if  typeChar == "Wizard" {
             print ("Choisissez le personnage de votre équipe 2 à soigner : 1 , 2 ou 3 ")
-            _ = team2.selectSoins()
+            _ = team2.selectSoins(powe)
         }
         else {
             print ("Choisissez le personnage de l'équipe 1 à attaquer : 1 , 2 ou 3 ")
-            _ = team1.selectWar()
+            _ = team1.selectWar(powe)
         }
     }
     
