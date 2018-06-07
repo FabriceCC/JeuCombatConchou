@@ -9,6 +9,9 @@
 import Foundation
 var game = Game()
 game.testLife()
-game.roundGame()
+game.roundGame1()
 print ("Fin du round 1 ...")
+game.testLife()
+game.roundGame2()
+print ("Fin du round 2...")
 game.testLife()
