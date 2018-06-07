@@ -19,13 +19,13 @@ class Character {
     init (type : String) {
         typeCharac = type
         initializeCharacter ()
-        
-        
-    }
+        }
+    
+    // Init
     convenience init () {
         self.init(type: "Fighter")
-        
-    }
+        }
+    
     // Initialize character 
     func initializeCharacter () {
         switch typeCharac {
