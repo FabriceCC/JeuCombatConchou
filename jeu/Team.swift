@@ -41,25 +41,25 @@ class Team {
         if let entry = playerEntry {
             if entry=="a" || entry=="b" || entry=="c" || entry=="d" {
                 if entry == "a" {
-                    let character = Character (type: "Fighter")
+                    let character = Character (type: .fighter)
                     let name = chooseCharacterName()
                     character.name = name
                     return character
                 }
                 else if entry == "b" {
-                    let character = Wizard (type: "Wizard")
+                    let character = Wizard (type: .wizard)
                     let name = chooseCharacterName()
                     character.name = name
                     return character
                 }
                 else if entry == "c" {
-                    let character = Character (type: "Dwarf")
+                    let character = Character (type: .dwarf)
                     let name = chooseCharacterName()
                     character.name = name
                     return character
                 }
                 else if entry == "d" {
-                    let character = Character (type: "Giant")
+                    let character = Character (type: .giant)
                     let name = chooseCharacterName()
                     character.name = name
                     return character
@@ -103,29 +103,31 @@ class Team {
     }
 
     // Function Select Player
-    func selectPlayer() -> String{
-        var typeTest : String?
+    func selectPlayer() -> Character{
         var playerEntry : String?
+        var personnage : Character?
+        repeat {
         playerEntry = readLine()
         if let entry = playerEntry {
             switch entry {
             case "1" :
-                let personnage = members [0]
-                print (" le personnage selectionné s'appelle \(personnage.name) \(members[0].name) ")
-                typeTest = personnage.typeCharac
+                personnage = members [0]
+                print (" le personnage selectionné s'appelle \(personnage!.name) \(members[0].name) ")
+            
             case "2" :
-                let personnage = members [1]
-                print (" le personnage selectionné s'appelle \(personnage.name) \(members[1].name) ")
-                typeTest = personnage.typeCharac
+                personnage = members [1]
+                print (" le personnage selectionné s'appelle \(personnage!.name) \(members[1].name) ")
+                
             case "3" :
-                let personnage = members [2]
-                print (" le personnage selectionné s'appelle \(personnage.name) \(members[2].name) ")
-                typeTest = personnage.typeCharac
+                personnage = members [2]
+                print (" le personnage selectionné s'appelle \(personnage!.name) \(members[2].name) ")
+                
             default :
-                print ("Choisissez seulement 1, 2 ou ")
+                print ("Choisissez seulement 1, 2 ou 3")
             }
         }
-        return typeTest!
+        } while personnage == nil
+        return personnage!
     }
     
     // Function select Soins

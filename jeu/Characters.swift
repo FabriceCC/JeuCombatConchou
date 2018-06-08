@@ -11,33 +11,36 @@ import Foundation
 
 // description of characters
 class Character {
+    enum CharacterType {
+      case fighter, dwarf, giant, wizard
+    }
     var name : String = ""
-    var typeCharac : String = "Fighter"
+    var typeCharac : CharacterType = .fighter
     var lifePersonnage = 100
     var weapon : String = "Sword"
-    var power : Int = -10
-    init (type : String) {
+    var power : Int = 10
+    init (type : CharacterType) {
         typeCharac = type
         initializeCharacter ()
         }
     
     // Init
     convenience init () {
-        self.init(type: "Fighter")
+        self.init(type: .fighter)
         }
     
     // Initialize character 
     func initializeCharacter () {
         switch typeCharac {
-        case "Dwarf" :
+        case .dwarf :
             lifePersonnage = 50
             weapon = "Axe"
             power = 20
-        case "Wizard" :
+        case .wizard :
             lifePersonnage = 80
             weapon = "Care"
             power = 20
-        case "Giant" :
+        case .giant :
             lifePersonnage = 150
             weapon = "Stick"
             power = 2
@@ -45,6 +48,13 @@ class Character {
             lifePersonnage = 100
             power = 10
         }
+    }
+  
+    // Funtion attacking
+    func attacking(_ target : Character)
+    {
+        target.lifePersonnage = target.lifePersonnage - power
+        print ("reste vie : \(target.lifePersonnage)")
     }
     
 }
