@@ -36,7 +36,7 @@ class Game {
         if  attackingCharacter.typeCharac == .wizard {
             if let wizard = attackingCharacter as? Wizard {
                 print ("Choisissez le personnage de votre équipe 1 à soigner : 1 , 2 ou 3 ")
-                var healedCharacter = team1.selectPlayer()
+                let healedCharacter = team1.selectPlayer()
                 wizard.heal(healedCharacter)
             }
             
@@ -44,21 +44,21 @@ class Game {
         else if attackingCharacter.typeCharac == .fighter {
             if let fighter = attackingCharacter as? Character {
             print ("Choisissez le personnage de l'équipe 2 à attaquer : 1 , 2 ou 3 ")
-            var attackCharacter = team2.selectPlayer()
+            let attackCharacter = team2.selectPlayer()
            fighter.attacking(attackCharacter)
         }
         }
         else if attackingCharacter.typeCharac == .dwarf {
             if let dwarf = attackingCharacter as? Character {
                 print ("Choisissez le personnage de l'équipe 2 à attaquer : 1 , 2 ou 3 ")
-                var attackCharacter = team2.selectPlayer()
+                let attackCharacter = team2.selectPlayer()
                 dwarf.attacking(attackCharacter)
             }
         }
-        else if attackingCharacter.typeCharac == .giant {
+        else  if attackingCharacter.typeCharac == .giant {
             if let giant = attackingCharacter as? Character {
                 print ("Choisissez le personnage de l'équipe 2 à attaquer : 1 , 2 ou 3 ")
-                var attackCharacter = team2.selectPlayer()
+                let attackCharacter = team2.selectPlayer()
                 giant.attacking(attackCharacter)
             }
         }
@@ -73,26 +73,26 @@ class Game {
     
     // Function test life team
     func testLife() {
-        //var sumLife = 0
-        //for character in team1.members {
-          //  sumLife = sumLife + character.lifePersonnage
+        var sumLife = 0
+        for character in team1.members {
+          sumLife = sumLife + character.lifePersonnage
         }
-        //print ("Total points vie équipe 1 : \(sumLife)")
-        //if sumLife == 0 {
-          //  print ("L'équipe 1 a perdu la partie, tous les personnages sont morts")
-        //}
-        //sumLife = 0
-        //for character in team2.members {
-          //  sumLife = sumLife + character.lifePersonnage
-        //}
-        //print ("Total points vie équipe 2 : \(sumLife)")
-        //if sumLife == 0 {
-          //  print ("L'équipe 2 a perdu la partie, tous les personnages sont morts")
-        //}
+        print ("Total points vie équipe 1 : \(sumLife)")
+        if sumLife == 0 {
+          print ("L'équipe 1 a perdu la partie, tous les personnages sont morts")
+        }
+        sumLife = 0
+        for character in team2.members {
+          sumLife = sumLife + character.lifePersonnage
+        }
+        print ("Total points vie équipe 2 : \(sumLife)")
+        if sumLife == 0 {
+          print ("L'équipe 2 a perdu la partie, tous les personnages sont morts")
+        }
     
 }
 
-    
+}
     
     
     

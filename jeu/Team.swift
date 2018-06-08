@@ -130,53 +130,9 @@ class Team {
         return personnage!
     }
     
-    // Function select Soins
-    func selectSoins (_ power : Int) {
-        var playerEntry : String?
-        playerEntry = readLine()
-        if let entry = playerEntry {
-            switch entry {
-            case "1" :
-                let personnage = members [0]
-                print (" le personnage à soigner s'appelle \(personnage.name) \(members[0].name) ")
-                members[0].lifePersonnage = members[0].lifePersonnage + power
-            case "2" :
-                let personnage = members [1]
-                print (" le personnage selectionné s'appelle \(personnage.name) \(members[1].name) ")
-                members[1].lifePersonnage = members[1].lifePersonnage + power
-            case "3" :
-                let personnage = members [2]
-                print (" le personnage selectionné s'appelle \(personnage.name) \(members[2].name) ")
-                members[2].lifePersonnage = members[2].lifePersonnage + power
-            default :
-                print ("Choisissez seulement 1, 2 ou ")
-            }
-        }
-    }
     
-    // Function select War
-    func selectWar(_ power : Int) {
-        var playerEntry : String?
-        playerEntry = readLine()
-        if let entry = playerEntry {
-            switch entry {
-            case "1" :
-                let personnage = members [0]
-                print (" le personnage selectionné s'appelle \(personnage.name) \(members[0].name) ")
-                members[0].lifePersonnage = members[0].lifePersonnage - power
-            case "2" :
-                let personnage = members [1]
-                print (" le personnage selectionné s'appelle \(personnage.name) \(members[1].name) ")
-                members[0].lifePersonnage = members[0].lifePersonnage - power
-            case "3" :
-                let personnage = members [2]
-                print (" le personnage selectionné s'appelle \(personnage.name) \(members[2].name) ")
-                members[0].lifePersonnage = members[0].lifePersonnage - power
-            default :
-                print ("Choisissez seulement 1, 2 ou ")
-            }
-        }
-    }
+    
+   
 }
 
 
