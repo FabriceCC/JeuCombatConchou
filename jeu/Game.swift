@@ -103,7 +103,7 @@ class Game {
         }    }
     
     // Function test life team
-    func testLife() -> Int {
+    func testLife1() -> Int {
         var sumLife1 = 0
         for character in team1.members {
           sumLife1 = sumLife1 + character.lifePersonnage
@@ -112,17 +112,23 @@ class Game {
         if sumLife1 == 0 {
           print ("L'équipe 1 a perdu la partie, tous les personnages sont morts")
         }
-        var sumLife2 = 0
-        for character in team2.members {
-          sumLife2 = sumLife2 + character.lifePersonnage
-        }
-        print ("Total points vie équipe 2 : \(sumLife2)")
-        if sumLife2 == 0 {
-          print ("L'équipe 2 a perdu la partie, tous les personnages sont morts")
-        }
+       
   return sumLife1
 }
 
+    func testLife2() -> Int {
+        
+        var sumLife2 = 0
+        for character in team2.members {
+            sumLife2 = sumLife2 + character.lifePersonnage
+        }
+        print ("Total points vie équipe 2 : \(sumLife2)")
+        if sumLife2 == 0 {
+            print ("L'équipe 2 a perdu la partie, tous les personnages sont morts")
+        }
+        return sumLife2
+    }
+    
 }
     
     
