@@ -8,9 +8,17 @@
 
 import Foundation
 var game = Game()
+var life1 = 1
 game.testLife()
-game.roundGame1()
-print ("Fin du round 1 ...")
-game.roundGame2()
-print ("Fin du round 2...")
-game.testLife()
+repeat {
+    print ("Choix action de l'équipe 1 : ")
+    game.roundGame1()
+    print ("Fin du round 1 ...")
+    print ("Choix action de l'équipe 2 : ")
+    game.roundGame2()
+    print ("Fin du round 2...")
+    life1 = game.testLife()
+    
+} while life1 <= 0
+
+
