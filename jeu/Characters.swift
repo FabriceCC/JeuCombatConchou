@@ -15,12 +15,12 @@ class Character {
       case fighter, dwarf, giant, wizard
     }
     var name : String = ""
-    var typeCharac : CharacterType = .fighter
-    var lifePersonnage = 100
+    var typeC : CharacterType = .fighter
+    var life = 100
     var weapon : String = "Sword"
     var power : Int = 10
     init (type : CharacterType) {
-        typeCharac = type
+        typeC = type
         initializeCharacter ()
         }
     
@@ -31,21 +31,21 @@ class Character {
     
     // Initialize character 
     func initializeCharacter () {
-        switch typeCharac {
+        switch typeC {
         case .dwarf :
-            lifePersonnage = 50
+            life = 20
             weapon = "Axe"
             power = 20
         case .wizard :
-            lifePersonnage = 80
+            life = 80
             weapon = "Care"
             power = 20
         case .giant :
-            lifePersonnage = 150
+            life = 150
             weapon = "Stick"
             power = 2
         default :
-            lifePersonnage = 100
+            life = 100
             power = 10
         }
     }
@@ -53,8 +53,8 @@ class Character {
     // Funtion attacking
     func attacking(_ target : Character)
     {
-        target.lifePersonnage = target.lifePersonnage - power
-        print ("reste vie : \(target.lifePersonnage)")
+        target.life = target.life - power
+        print ("reste vie : \(target.life)")
     }
     
 }

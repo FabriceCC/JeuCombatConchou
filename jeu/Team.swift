@@ -97,7 +97,7 @@ class Team {
         print ("L'équipe 1 est composée ainsi : ")
         var num : Int = 1
         for character in members {
-            print ("Votre personnage \(num) s'appelle \(character.name) qui est un \(character.typeCharac) avec \(character.lifePersonnage) de points de vie. Il a \(character.weapon) comme arme et son arme inflige \(character.power) de points de vie")
+            print ("Votre personnage \(num) s'appelle \(character.name) qui est un \(character.typeC) avec \(character.life) de points de vie. Il a \(character.weapon) comme arme et son arme inflige \(character.power) de points de vie")
             num = num + 1
         }
     }
@@ -107,25 +107,30 @@ class Team {
         var playerEntry : String?
         var personnage : Character?
         repeat {
+            repeat {
         playerEntry = readLine()
         if let entry = playerEntry {
             switch entry {
             case "1" :
                 personnage = members [0]
-                print (" le personnage selectionné s'appelle \(personnage!.name) \(members[0].name) ")
+                print (" le personnage selectionné s'appelle \(members[0].name) ")
             
             case "2" :
                 personnage = members [1]
-                print (" le personnage selectionné s'appelle \(personnage!.name) \(members[1].name) ")
+                print (" le personnage selectionné s'appelle  \(members[1].name) ")
                 
             case "3" :
                 personnage = members [2]
-                print (" le personnage selectionné s'appelle \(personnage!.name) \(members[2].name) ")
+                print (" le personnage selectionné s'appelle  \(members[2].name) ")
                 
             default :
                 print ("Choisissez seulement 1, 2 ou 3")
-            }
-        }
+                }
+                }
+                if personnage!.life <= 0 {
+                    print ("\(personnage!.name) votre \(personnage!.typeC) est mort, veuillez choisir un autre personnage")
+                }
+            } while personnage!.life <= 0
         } while personnage == nil
         return personnage!
     }

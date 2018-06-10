@@ -21,6 +21,12 @@ repeat {
     print ("Fin du round 2...")
     life1 = game.testLife1()
     life2 = game.testLife2()
-} while life1 > 0 || life2 > 0
+    if life1 <= 0 {
+        print ("La partie est finie, l'équipe 1 a perdu")
+    }
+    if life2 <= 0 {
+        print ("La partie est finie, l'équipe 2 a perdu")
+    }
+} while life1 > 0 && life2 > 0
 
 

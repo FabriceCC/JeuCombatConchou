@@ -33,7 +33,7 @@ class Game {
         print ("Choisissez le personnage de votre équipe 1 : 1 , 2 ou 3 ")
         let attackingCharacter = team1.selectPlayer()
         
-        if  attackingCharacter.typeCharac == .wizard {
+        if  attackingCharacter.typeC == .wizard {
             if let wizard = attackingCharacter as? Wizard {
                 print ("Choisissez le personnage de votre équipe 1 à soigner : 1 , 2 ou 3 ")
                 let healedCharacter = team1.selectPlayer()
@@ -41,21 +41,21 @@ class Game {
             }
             
         }
-        else if attackingCharacter.typeCharac == .fighter {
+        else if attackingCharacter.typeC == .fighter {
             if let fighter = attackingCharacter as? Character {
             print ("Choisissez le personnage de l'équipe 2 à attaquer : 1 , 2 ou 3 ")
             let attackCharacter = team2.selectPlayer()
            fighter.attacking(attackCharacter)
         }
         }
-        else if attackingCharacter.typeCharac == .dwarf {
+        else if attackingCharacter.typeC == .dwarf {
             if let dwarf = attackingCharacter as? Character {
                 print ("Choisissez le personnage de l'équipe 2 à attaquer : 1 , 2 ou 3 ")
                 let attackCharacter = team2.selectPlayer()
                 dwarf.attacking(attackCharacter)
             }
         }
-        else  if attackingCharacter.typeCharac == .giant {
+        else  if attackingCharacter.typeC == .giant {
             if let giant = attackingCharacter as? Character {
                 print ("Choisissez le personnage de l'équipe 2 à attaquer : 1 , 2 ou 3 ")
                 let attackCharacter = team2.selectPlayer()
@@ -72,7 +72,7 @@ class Game {
         print ("Choisissez le personnage de votre équipe 2 : 1 , 2 ou 3 ")
         let attackingCharacter = team2.selectPlayer()
         
-        if  attackingCharacter.typeCharac == .wizard {
+        if  attackingCharacter.typeC == .wizard {
             if let wizard = attackingCharacter as? Wizard {
                 print ("Choisissez le personnage de votre équipe 2 à soigner : 1 , 2 ou 3 ")
                 let healedCharacter = team2.selectPlayer()
@@ -80,21 +80,21 @@ class Game {
             }
             
         }
-        else if attackingCharacter.typeCharac == .fighter {
+        else if attackingCharacter.typeC == .fighter {
             if let fighter = attackingCharacter as? Character {
                 print ("Choisissez le personnage de l'équipe 1 à attaquer : 1 , 2 ou 3 ")
                 let attackCharacter = team1.selectPlayer()
                 fighter.attacking(attackCharacter)
             }
         }
-        else if attackingCharacter.typeCharac == .dwarf {
+        else if attackingCharacter.typeC == .dwarf {
             if let dwarf = attackingCharacter as? Character {
                 print ("Choisissez le personnage de l'équipe 1 à attaquer : 1 , 2 ou 3 ")
                 let attackCharacter = team1.selectPlayer()
                 dwarf.attacking(attackCharacter)
             }
         }
-        else  if attackingCharacter.typeCharac == .giant {
+        else  if attackingCharacter.typeC == .giant {
             if let giant = attackingCharacter as? Character {
                 print ("Choisissez le personnage de l'équipe 1 à attaquer : 1 , 2 ou 3 ")
                 let attackCharacter = team1.selectPlayer()
@@ -106,7 +106,7 @@ class Game {
     func testLife1() -> Int {
         var sumLife1 = 0
         for character in team1.members {
-          sumLife1 = sumLife1 + character.lifePersonnage
+          sumLife1 = sumLife1 + character.life
         }
         print ("Total points vie équipe 1 : \(sumLife1)")
         if sumLife1 == 0 {
@@ -120,7 +120,7 @@ class Game {
         
         var sumLife2 = 0
         for character in team2.members {
-            sumLife2 = sumLife2 + character.lifePersonnage
+            sumLife2 = sumLife2 + character.life
         }
         print ("Total points vie équipe 2 : \(sumLife2)")
         if sumLife2 == 0 {
