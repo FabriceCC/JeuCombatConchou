@@ -8,6 +8,7 @@
 import Foundation
 // description of team
 class Team {
+    var nameTeam : String = ""
     var members = [Character]()
     static var characterNames = [String] ()
     
@@ -24,6 +25,12 @@ class Team {
     
   // Function create team
     func createTeam() {
+        print ("Veuillez saisir le nom de votre équipe : ")
+        
+        if let entryName = readLine() {
+            nameTeam = entryName
+               }
+       
         print ("Veuillez choisir 3 personnages")
         repeat {
             let entry = selectCharacter()
@@ -94,7 +101,7 @@ class Team {
     // Function introdiuce
     func introdiuce () {
         print ("Les équipes sont créées le jeu va pouvoir commencer...")
-        print ("L'équipe 1 est composée ainsi : ")
+        print ("L'équipe \(nameTeam) est composée ainsi : ")
         var num : Int = 1
         for character in members {
             print ("Votre personnage \(num) s'appelle \(character.name) qui est un \(character.typeC) avec \(character.life) de points de vie. Il a \(character.weapon) comme arme et son arme inflige \(character.power) de points de vie")

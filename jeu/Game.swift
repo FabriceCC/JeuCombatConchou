@@ -27,112 +27,66 @@ class Game {
         team2.createTeam()
         }
     
-    // Function Round game team 1
-    func roundGame1 () {
-        // demander équipe 1 de choisir personnage
-        print ("Choisissez le personnage de votre équipe 1 : 1 , 2 ou 3 ")
-        let attackingCharacter = team1.selectPlayer()
-        
-        if  attackingCharacter.typeC == .wizard {
-            if let wizard = attackingCharacter as? Wizard {
-                print ("Choisissez le personnage de votre équipe 1 à soigner : 1 , 2 ou 3 ")
-                let healedCharacter = team1.selectPlayer()
-                wizard.heal(healedCharacter)
-            }
-            
-        }
-        else if attackingCharacter.typeC == .fighter {
-            if let fighter = attackingCharacter as? Character {
-            print ("Choisissez le personnage de l'équipe 2 à attaquer : 1 , 2 ou 3 ")
-            let attackCharacter = team2.selectPlayer()
-           fighter.attacking(attackCharacter)
-        }
-        }
-        else if attackingCharacter.typeC == .dwarf {
-            if let dwarf = attackingCharacter as? Character {
-                print ("Choisissez le personnage de l'équipe 2 à attaquer : 1 , 2 ou 3 ")
-                let attackCharacter = team2.selectPlayer()
-                dwarf.attacking(attackCharacter)
-            }
-        }
-        else  if attackingCharacter.typeC == .giant {
-            if let giant = attackingCharacter as? Character {
-                print ("Choisissez le personnage de l'équipe 2 à attaquer : 1 , 2 ou 3 ")
-                let attackCharacter = team2.selectPlayer()
-                giant.attacking(attackCharacter)
-            }
-        }
-    }
-    
-    
-    // Function Round game Team 2
-    func roundGame2 () {
-        
-        // demander équipe 2 de choisir personnage
-        print ("Choisissez le personnage de votre équipe 2 : 1 , 2 ou 3 ")
-        let attackingCharacter = team2.selectPlayer()
-        
-        if  attackingCharacter.typeC == .wizard {
-            if let wizard = attackingCharacter as? Wizard {
-                print ("Choisissez le personnage de votre équipe 2 à soigner : 1 , 2 ou 3 ")
-                let healedCharacter = team2.selectPlayer()
-                wizard.heal(healedCharacter)
-            }
-            
-        }
-        else if attackingCharacter.typeC == .fighter {
-            if let fighter = attackingCharacter as? Character {
-                print ("Choisissez le personnage de l'équipe 1 à attaquer : 1 , 2 ou 3 ")
-                let attackCharacter = team1.selectPlayer()
-                fighter.attacking(attackCharacter)
-            }
-        }
-        else if attackingCharacter.typeC == .dwarf {
-            if let dwarf = attackingCharacter as? Character {
-                print ("Choisissez le personnage de l'équipe 1 à attaquer : 1 , 2 ou 3 ")
-                let attackCharacter = team1.selectPlayer()
-                dwarf.attacking(attackCharacter)
-            }
-        }
-        else  if attackingCharacter.typeC == .giant {
-            if let giant = attackingCharacter as? Character {
-                print ("Choisissez le personnage de l'équipe 1 à attaquer : 1 , 2 ou 3 ")
-                let attackCharacter = team1.selectPlayer()
-                giant.attacking(attackCharacter)
-            }
-        }    }
-    
-    // Function test life team
-    func testLife1() -> Int {
-        var sumLife1 = 0
-        for character in team1.members {
-          sumLife1 = sumLife1 + character.life
-        }
-        print ("Total points vie équipe 1 : \(sumLife1)")
-        if sumLife1 == 0 {
-          print ("L'équipe 1 a perdu la partie, tous les personnages sont morts")
-        }
-       
-  return sumLife1
-}
 
-    func testLife2() -> Int {
+    func roundGame (attackingTeam : Team , defendingTeam : Team) {
+        // demander à l'équipe de choisir personnage
+        print ("C'est votre Round. Choisissez votre personnage  : 1 , 2 ou 3 ")
+        let attackingCharacter = attackingTeam.selectPlayer()
         
-        var sumLife2 = 0
-        for character in team2.members {
-            sumLife2 = sumLife2 + character.life
+        if  attackingCharacter.typeC == .wizard {
+            if let wizard = attackingCharacter as? Wizard {
+                print ("Choisissez le personnage de votre équipe à soigner : 1 , 2 ou 3 ")
+                let healedCharacter = attackingTeam.selectPlayer()
+                wizard.heal(healedCharacter)
+            }
+            
         }
-        print ("Total points vie équipe 2 : \(sumLife2)")
-        if sumLife2 == 0 {
-            print ("L'équipe 2 a perdu la partie, tous les personnages sont morts")
+        else {
+             print ("Choisissez le personnage de l'équipe adverse à attaquer : 1 , 2 ou 3 ")
+            let targetCharacter = defendingTeam.selectPlayer()
+            attackingCharacter.attacking(targetCharacter)
+            
         }
-        return sumLife2
+        
+    }
+    func fight() {
+        var attacker = team1
+        var defensor = team2
+        var life1 = 1
+        var life2 = 1
+        var numberRound = 1
+        repeat {
+            print ("")
+            print ("Début du round \(numberRound) c'est l'équipe \(attacker.nameTeam) qui a la main")
+        roundGame(attackingTeam: attacker, defendingTeam: defensor)
+        print ("Fin du round \(numberRound) ...")
+            
+            life1 = game.testLife(test1 : team1)
+            life2 = game.testLife(test1 : team2)
+            print ("Total des points équipe \(team1.nameTeam) : \(life1)")
+            print ("Total des points équipe \(team2.nameTeam) : \(life2)")
+            if life1 <= 0 {
+            print ("La partie est finie, l'équipe \(team1.nameTeam) a perdu en \(numberRound) rounds")
+            }
+            if life2 <= 0 {
+            print ("La partie est finie, l'équipe \(team2.nameTeam) a perdu en \(numberRound) rounds")
+            }
+            swap(&attacker, &defensor)
+            numberRound += 1
+            
+        } while life1 > 0 && life2 > 0
+}
+    func testLife(test1 : Team) -> Int {
+        
+        var sumLife = 0
+        for character in test1.members {
+            sumLife = sumLife + character.life
+        }
+        
+        return sumLife
     }
     
 }
-    
-    
-    
     
     
 
