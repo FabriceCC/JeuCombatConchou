@@ -11,7 +11,6 @@
 		3019F298208B21EA00A1C8CB /* Characters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3019F297208B21EA00A1C8CB /* Characters.swift */; };
 		3019F29A208B21F600A1C8CB /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3019F299208B21F600A1C8CB /* Team.swift */; };
 		3019F29C208B220200A1C8CB /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3019F29B208B220200A1C8CB /* Game.swift */; };
-		3019F29E208B221800A1C8CB /* Arms.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3019F29D208B221800A1C8CB /* Arms.swift */; };
 		3019F2A0208B223A00A1C8CB /* Wizard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3019F29F208B223A00A1C8CB /* Wizard.swift */; };
 /* End PBXBuildFile section */
 
@@ -33,7 +32,6 @@
 		3019F297208B21EA00A1C8CB /* Characters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Characters.swift; sourceTree = "<group>"; };
 		3019F299208B21F600A1C8CB /* Team.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
 		3019F29B208B220200A1C8CB /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
-		3019F29D208B221800A1C8CB /* Arms.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Arms.swift; sourceTree = "<group>"; };
 		3019F29F208B223A00A1C8CB /* Wizard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wizard.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -71,7 +69,6 @@
 				3019F297208B21EA00A1C8CB /* Characters.swift */,
 				3019F299208B21F600A1C8CB /* Team.swift */,
 				3019F29B208B220200A1C8CB /* Game.swift */,
-				3019F29D208B221800A1C8CB /* Arms.swift */,
 				3019F29F208B223A00A1C8CB /* Wizard.swift */,
 			);
 			path = jeu;
@@ -135,7 +132,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				3019F2A0208B223A00A1C8CB /* Wizard.swift in Sources */,
-				3019F29E208B221800A1C8CB /* Arms.swift in Sources */,
 				3019F29C208B220200A1C8CB /* Game.swift in Sources */,
 				3019F28D2089F3AF00A1C8CB /* main.swift in Sources */,
 				3019F29A208B21F600A1C8CB /* Team.swift in Sources */,

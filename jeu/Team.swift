@@ -141,8 +141,27 @@ class Team {
         } while personnage == nil
         return personnage!
     }
-    
-    
+   
+    func changedWeapon() {
+        var changeCharacter : Character?
+        print ("Oh !!! Le coffre magique voici votre nouvelle arme !!! c'est : ")
+        let misteriousWeapon = Int(arc4random_uniform(3)) + 1
+        repeat {
+        switch misteriousWeapon {
+        case 1 :
+            changeCharacter?.weapon = "Flower"
+            changeCharacter?.power = 1
+            
+        case 2 :
+            changeCharacter?.weapon = "Bazooka"
+            changeCharacter?.power = 50
+        default :
+            changeCharacter?.weapon = "Tank"
+            changeCharacter?.power = 100
+            
+        }
+        } while changeCharacter == nil
+    }
     
    
 }
