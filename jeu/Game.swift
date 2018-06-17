@@ -47,33 +47,52 @@ class Game {
         
    // }
         
-        func changedWeaponWizard(careCharacter : String , carePower : Int) {
+        func changedWeaponWizard() -> Character {
             print ("Oh !!! Le coffre magique voici votre nouveau soin !!! c'est : ")
-            var careWizard = careCharacter
-            var powerWizard = carePower
+            var chanWizard : Character?
+            repeat{
             let misteriousCare = Int(arc4random_uniform(2)) + 1
         switch misteriousCare {
         case 1 :
-            careWizard = "Potion"
-            powerWizard = 50
+            chanWizard!.weapon = "Potion"
+            chanWizard!.power = 50
         default :
-            careWizard = "Drug"
-            powerWizard = 100
+            chanWizard!.weapon = "Drug"
+            chanWizard!.power = 100
         }
+            } while chanWizard == nil
+                return chanWizard!
+    }
+    
+    func changedWeapon() -> Character {
+        print ("Oh !!! Le coffre magique voici votre nouvelle arme !!! c'est : ")
+        var chanAttack : Character?
+        let misteriousWeapon = Int(arc4random_uniform(2)) + 1
+        while chanAttack != nil {
+        if misteriousWeapon == 1 {
+            chanAttack!.weapon = "Flower"
+            chanAttack!.power = 1
+        }
+        else {
+            chanAttack!.weapon = "Bazooka"
+            chanAttack!.power = 50
+        }
+        }
+        return chanAttack!
         
     }
     
-
     func roundGame (attackingTeam : Team , defendingTeam : Team) {
         // demander à l'équipe de choisir personnage
         print ("C'est votre Round. Choisissez votre personnage  : 1 , 2 ou 3 ")
         let attackingCharacter = attackingTeam.selectPlayer()
-        let misteriousSafe = Int(arc4random_uniform(5)) + 1
+        let misteriousSafe = Int(arc4random_uniform(3)) + 1
         if  attackingCharacter.typeC == .wizard {
             if let wizard = attackingCharacter as? Wizard {
-                if misteriousSafe == 3 {
-                    changedWeaponWizard(careCharacter : attackingCharacter.weapon , carePower : attackingCharacter.power)
-                    print ("\(attackingCharacter.weapon) avec une force de réparation de \(attackingCharacter.power) points")
+                if misteriousSafe == 2  {
+                    let changeWizard = changedWeaponWizard()
+                    
+                    print ("\(changeWizard.weapon) avec une force de réparation de \(changeWizard.power) points")
                     
                 }
                 print ("Choisissez le personnage de votre équipe à soigner : 1 , 2 ou 3 ")
@@ -83,10 +102,11 @@ class Game {
             
         }
         else {
-            if misteriousSafe == 3 {
+            if misteriousSafe == 1 {
                 //changedWeapon(changeWeapon : attackingCharacter.weapon , changedPower : attackingCharacter.power)
-                let changeCharac = attackingTeam.changedWeapon()
-                print (" \(attackingCharacter.weapon) avec une force destructrice de \(attackingCharacter.power) points")
+                let changeAttack = changedWeapon()
+                
+                print ("\(changeAttack.weapon) avec une force de réparation de \(changeAttack.power) points")
             }
             print ("Choisissez le personnage de l'équipe adverse à attaquer : 1 , 2 ou 3 ")
             let targetCharacter = defendingTeam.selectPlayer()
