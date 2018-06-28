@@ -113,7 +113,7 @@ class Team {
     func selectPlayer() -> Character{
         var playerEntry : String?
         var personnage : Character?
-        repeat {
+       repeat {
             repeat {
         playerEntry = readLine()
         if let entry = playerEntry {
@@ -134,11 +134,18 @@ class Team {
                 print ("Choisissez seulement 1, 2 ou 3")
                 }
                 }
-                if personnage!.life <= 0 {
-                    print ("\(personnage!.name) votre \(personnage!.typeC) est mort, veuillez choisir un autre personnage")
-                }
-            } while personnage!.life <= 0
-        } while personnage == nil
+                
+        
+                
+                
+                
+            //} while personnage!.life <= 0
+       } while personnage == nil
+               // test personnage mort
+        if personnage!.life <= 0 {
+            print ("\(personnage!.name) votre \(personnage!.typeC) est mort, veuillez choisir un autre personnage")
+        }
+        } while personnage!.life <= 0
         return personnage!
     }
    
