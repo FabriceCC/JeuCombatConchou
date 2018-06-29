@@ -51,7 +51,7 @@ class Game {
             print ("Oh !!! Le coffre magique voici votre nouveau soin !!! c'est : ")
             var chanWizard : Character?
         chanWizard = CharacterToChangeWizard
-            if chanWizard == nil {
+        
             let misteriousCare = Int(arc4random_uniform(2)) + 1
         switch misteriousCare {
         case 1 :
@@ -61,7 +61,7 @@ class Game {
             chanWizard!.weapon = "Drug"
             chanWizard!.power = 100
         }
-            }
+        
                 return chanWizard!
     }
     
@@ -70,7 +70,7 @@ class Game {
         var chanAttack : Character?
         chanAttack = CharacterToChangeWeapon
         let misteriousWeapon = Int(arc4random_uniform(2)) + 1
-        if chanAttack == nil {
+      
         if misteriousWeapon == 1 {
             chanAttack!.weapon = "Flower"
             chanAttack!.power = 1
@@ -79,7 +79,7 @@ class Game {
             chanAttack!.weapon = "Bazooka"
             chanAttack!.power = 50
         }
-        }
+     
             return chanAttack!
         
     }
@@ -94,9 +94,9 @@ class Game {
             if let wizard = attackingCharacter as? Wizard {
                 if misteriousSafe == 2  {
                     
-                   // let changeWizard = changedWeaponWizard( : Character)
+                   let changeWizard = changedWeaponWizard(CharacterToChangeWizard : attackingCharacter)
                     
-                 //   print ("\(changeWizard.weapon) avec une force de réparation de \(changeWizard.power) points")
+                 print ("\(changeWizard.weapon) avec une force de réparation de \(changeWizard.power) points")
                     
                 }
                 print ("Choisissez le personnage de votre équipe à soigner : 1 , 2 ou 3 ")
@@ -107,10 +107,10 @@ class Game {
         }
         else {
             if misteriousSafe == 1 {
-                //changedWeapon(changeWeapon : attackingCharacter.weapon , changedPower : attackingCharacter.power)
-             //   let changeAttack = changedWeapon()
                 
-             //   print ("\(changeAttack.weapon) avec une force de réparation de \(changeAttack.power) points")
+             let changeAttack = changedWeapon(CharacterToChangeWeapon: attackingCharacter)
+                
+             print ("\(changeAttack.weapon) avec une force de destruction de \(changeAttack.power) points")
             }
             print ("Choisissez le personnage de l'équipe adverse à attaquer : 1 , 2 ou 3 ")
             let targetCharacter = defendingTeam.selectPlayer()
