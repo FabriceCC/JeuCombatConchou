@@ -21,9 +21,9 @@ class Team {
             }
         }
         return true
-    }
+        }
     
-  // Function create team
+    // Function create team
     func createTeam() {
         print ("Veuillez saisir le nom de votre équipe : ")
         
@@ -38,7 +38,7 @@ class Team {
                 members.append (character)
             }
         } while members.count < 3
-    }
+        }
   
     // Function selection Character
     func selectCharacter() -> Character? {
@@ -77,7 +77,7 @@ class Team {
             }
         }
         return nil
-    }
+        }
 
     // Funtion choose Name
     func chooseCharacterName() -> String{
@@ -96,7 +96,7 @@ class Team {
             }
         } while !uniqueName  // ! pour dire le contraire
         return finalName!
-    }
+        }
   
     // Function introdiuce
     func introdiuce () {
@@ -104,15 +104,21 @@ class Team {
         print ("L'équipe \(nameTeam) est composée ainsi : ")
         var num : Int = 1
         for character in members {
-            print ("Votre personnage \(num) s'appelle \(character.name) qui est un \(character.typeC) avec \(character.life) de points de vie. Il a \(character.weapon) comme arme et son arme inflige \(character.power) de points de vie")
+            print ("Personnage \(num) - Nom : \(character.name) - Type : \(character.typeC) - Vie : \(character.life) - Arme : \(character.weapon) - Force : \(character.power) ")
             num = num + 1
         }
-    }
+        }
 
     // Function Select Player
     func selectPlayer() -> Character{
         var playerEntry : String?
         var personnage : Character?
+        print("Vous pouvez choisir entre : ")
+        var numChoice = 1
+        for character in members {
+            print ("Personnage \(numChoice) - Nom : \(character.name) - Type : \(character.typeC) - Vie : \(character.life) - Arme : \(character.weapon) - Force : \(character.power) ")
+            numChoice = numChoice + 1
+        }
        repeat {
             repeat {
         playerEntry = readLine()
@@ -134,43 +140,17 @@ class Team {
                 print ("Choisissez seulement 1, 2 ou 3")
                 }
                 }
-                
-        
-                
-                
-                
+             
             //} while personnage!.life <= 0
-       } while personnage == nil
+            } while personnage == nil
                // test personnage mort
-        if personnage!.life <= 0 {
+            if personnage!.life <= 0 {
             print ("\(personnage!.name) votre \(personnage!.typeC) est mort, veuillez choisir un autre personnage")
+            }
+            } while personnage!.life <= 0
+            return personnage!
         }
-        } while personnage!.life <= 0
-        return personnage!
-    }
-   
-    func changedWeapon() {
-        var changeCharacter : Character?
-        print ("Oh !!! Le coffre magique voici votre nouvelle arme !!! c'est : ")
-        let misteriousWeapon = Int(arc4random_uniform(3)) + 1
-        repeat {
-        switch misteriousWeapon {
-        case 1 :
-            changeCharacter?.weapon = "Flower"
-            changeCharacter?.power = 1
-            
-        case 2 :
-            changeCharacter?.weapon = "Bazooka"
-            changeCharacter?.power = 50
-        default :
-            changeCharacter?.weapon = "Tank"
-            changeCharacter?.power = 100
-            
-        }
-        } while changeCharacter == nil
-    }
     
-   
 }
 
 

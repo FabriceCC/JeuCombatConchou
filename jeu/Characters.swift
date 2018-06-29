@@ -54,6 +54,9 @@ class Character {
     func attacking(_ target : Character)
     {
         target.life = target.life - power
+        if target.life <= 0 {
+            target.life = 0
+        }
         print ("reste vie : \(target.life)")
     }
     

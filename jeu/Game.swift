@@ -27,98 +27,64 @@ class Game {
         team2.createTeam()
         }
     
-    //func changedWeapon(changeWeapon : String , changedPower : Int) {
-    //func changedWeapon() {
-      //  var attackCharacter = changeWeapon
-        //var attackPower = changedPower
-        //print ("Oh !!! Le coffre magique voici votre nouvelle arme !!! c'est : ")
-        //let misteriousWeapon = Int(arc4random_uniform(3)) + 1
-        //switch misteriousWeapon {
-        //case 1 :
-          //  attackCharacter = "Flower"
-           // attackPower = 1
-    //case 2 :
-      //      attackCharacter = "Bazooka"
-        //    attackPower = 50
-        //default :
-         //   attackCharacter = "Tank"
-           // attackPower = 80
-        //}
-        
-   // }
-        
-    func changedWeaponWizard(CharacterToChangeWizard : Character) -> Character {
+    // Function change weapon for wizart
+    func changedWeaponWizard(CharacterToChangeWizard : Character)  {
             print ("Oh !!! Le coffre magique voici votre nouveau soin !!! c'est : ")
-            var chanWizard : Character?
-        chanWizard = CharacterToChangeWizard
-        
             let misteriousCare = Int(arc4random_uniform(2)) + 1
         switch misteriousCare {
         case 1 :
-            chanWizard!.weapon = "Potion"
-            chanWizard!.power = 50
+            CharacterToChangeWizard.weapon = "Potion"
+            CharacterToChangeWizard.power = 50
         default :
-            chanWizard!.weapon = "Drug"
-            chanWizard!.power = 100
+            CharacterToChangeWizard.weapon = "Drug"
+            CharacterToChangeWizard.power = 100
         }
-        
-                return chanWizard!
-    }
-    
-    func changedWeapon(CharacterToChangeWeapon : Character) -> Character {
+        }
+   
+    // Function change weapon for attacker
+    func changedWeapon(CharacterToChangeWeapon : Character)  {
         print ("Oh !!! Le coffre magique voici votre nouvelle arme !!! c'est : ")
-        var chanAttack : Character?
-        chanAttack = CharacterToChangeWeapon
         let misteriousWeapon = Int(arc4random_uniform(2)) + 1
-      
         if misteriousWeapon == 1 {
-            chanAttack!.weapon = "Flower"
-            chanAttack!.power = 1
+            CharacterToChangeWeapon.weapon = "Flower"
+            CharacterToChangeWeapon.power = 1
         }
         else {
-            chanAttack!.weapon = "Bazooka"
-            chanAttack!.power = 50
+            CharacterToChangeWeapon.weapon = "Bazooka"
+            CharacterToChangeWeapon.power = 50
         }
-     
-            return chanAttack!
-        
-    }
+        }
     
+    // Function roung game
     func roundGame (attackingTeam : Team , defendingTeam : Team) {
         // demander à l'équipe de choisir personnage
         print ("C'est votre Round. Choisissez votre personnage  : 1 , 2 ou 3 ")
         let attackingCharacter = attackingTeam.selectPlayer()
-        var attackCharacter : Character
+        // var attackCharacter : Character
         let misteriousSafe = Int(arc4random_uniform(3)) + 1
         if  attackingCharacter.typeC == .wizard {
             if let wizard = attackingCharacter as? Wizard {
                 if misteriousSafe == 2  {
-                    
-                   let changeWizard = changedWeaponWizard(CharacterToChangeWizard : attackingCharacter)
-                    
-                 print ("\(changeWizard.weapon) avec une force de réparation de \(changeWizard.power) points")
-                    
+                   changedWeaponWizard(CharacterToChangeWizard : wizard)
+                 print ("\(wizard.weapon) avec une force de réparation de \(wizard.power) points")
                 }
                 print ("Choisissez le personnage de votre équipe à soigner : 1 , 2 ou 3 ")
                 let healedCharacter = attackingTeam.selectPlayer()
                 wizard.heal(healedCharacter)
             }
-            
-        }
+            }
         else {
             if misteriousSafe == 1 {
-                
-             let changeAttack = changedWeapon(CharacterToChangeWeapon: attackingCharacter)
-                
-             print ("\(changeAttack.weapon) avec une force de destruction de \(changeAttack.power) points")
+            changedWeapon(CharacterToChangeWeapon : attackingCharacter)
+             print ("\(attackingCharacter.weapon) avec une force de destruction de \(attackingCharacter.power) points")
             }
             print ("Choisissez le personnage de l'équipe adverse à attaquer : 1 , 2 ou 3 ")
             let targetCharacter = defendingTeam.selectPlayer()
             attackingCharacter.attacking(targetCharacter)
-            
         }
-        
-    }
+        }
+    
+    // Function Fight
     func fight() {
         var attacker = team1
         var defensor = team2
@@ -130,7 +96,6 @@ class Game {
             print ("Début du round \(numberRound) c'est l'équipe \(attacker.nameTeam) qui a la main")
         roundGame(attackingTeam: attacker, defendingTeam: defensor)
         print ("Fin du round \(numberRound) ...")
-            
             life1 = game.testLife(test1 : team1)
             life2 = game.testLife(test1 : team2)
             print ("Total des points équipe \(team1.nameTeam) : \(life1)")
@@ -143,19 +108,17 @@ class Game {
             }
             swap(&attacker, &defensor)
             numberRound += 1
-            
         } while life1 > 0 && life2 > 0
-}
+        }
         
+    // Function test life team
     func testLife(test1 : Team) -> Int {
-        
         var sumLife = 0
         for character in test1.members {
             sumLife = sumLife + character.life
         }
-        
         return sumLife
-    }
+        }
   
 }
     
