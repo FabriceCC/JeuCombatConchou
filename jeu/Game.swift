@@ -55,7 +55,7 @@ class Game {
         }
         }
     
-    // Function roung game
+    // Function round game
     func roundGame (attackingTeam : Team , defendingTeam : Team) {
         // demander à l'équipe de choisir personnage
         print ("C'est votre Round. Choisissez votre personnage  : 1 , 2 ou 3 ")
@@ -96,8 +96,8 @@ class Game {
             print ("Début du round \(numberRound) c'est l'équipe \(attacker.nameTeam) qui a la main")
         roundGame(attackingTeam: attacker, defendingTeam: defensor)
         print ("Fin du round \(numberRound) ...")
-            life1 = game.testLife(test1 : team1)
-            life2 = game.testLife(test1 : team2)
+            life1 = testLife(test1 : team1)
+            life2 = testLife(test1 : team2)
             print ("Total des points équipe \(team1.nameTeam) : \(life1)")
             print ("Total des points équipe \(team2.nameTeam) : \(life2)")
             if life1 <= 0 {

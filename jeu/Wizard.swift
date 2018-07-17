@@ -10,12 +10,10 @@ import Foundation
 // description of Wizard
 
 class Wizard : Character {
-
     func heal(_ target : Character)
     {
        target.life = target.life + power
         print ("reste vie : \(target.life)")
-        
     }
 }
 
