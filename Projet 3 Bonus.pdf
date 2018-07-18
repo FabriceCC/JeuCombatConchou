@@ -1,0 +1,5 @@
+Projet 3 : Fabrice Conchou
+
+Le bonus choisi est le décompte du nombre de round nécessaire à finir la partie.
+J’ai inséré ce bonus dans la fonction Fight en utilisant la variable numberRound
+En plus de compter le nombre de round total de la partie cela me permet de faire afficher à chaque étape du combat le numéro du round dans lequel on se trouve. 
